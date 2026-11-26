@@ -5,7 +5,7 @@
 
 ## What it does
 
-Give Codex a research paper. The skill picks full sentences from the original text and saves a PDF copy with embedded highlights. Your source PDF stays intact.
+Give Codex or Claude Code a research paper. The skill picks full sentences from the original text and saves a PDF copy with embedded highlights. Your source PDF stays intact.
 
 | Color | What it marks |
 | :--- | :--- |
@@ -24,7 +24,7 @@ The same page before and after highlighting. Select either image to see it at fu
 
 ## Read and take notes in Zotero
 
-1. **Highlight.** Ask Codex to highlight the paper and save an annotated PDF copy.
+1. **Highlight.** Ask Codex or Claude Code to highlight the paper and save an annotated PDF copy.
 2. **Import.** Attach the copy to the paper's Zotero entry and open it in the Zotero PDF reader. Choose **File → Import Annotations…** to make the highlights editable in Zotero. [Zotero documentation](https://www.zotero.org/support/kb/annotations_in_database#interacting_with_embedded_annotations)
 3. **Read with Notes open.** Use the left Annotations pane to jump to a passage and the right Notes pane to write as you read. Drag a highlight into your note to keep a link to the passage. Then write your own take, such as how the authors' evidence supports the claim or where you would use it in your review. [Zotero PDF Reader and Note Editor](https://www.zotero.org/support/pdf_reader)
 
@@ -47,6 +47,21 @@ Attach the PDF in Codex and try this prompt.
 > Use `$highlight-research-pdf` to highlight this paper and save an annotated PDF copy.
 
 See the [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) for project-scoped installation.
+
+## Install in Claude Code
+
+With Git and Python installed, run these commands in PowerShell, Git Bash, or a macOS/Linux shell. Install PyMuPDF in the Python environment that will run the annotation script.
+
+```sh
+git clone https://github.com/giocosogiocondo/highlight-research-pdf.git "$HOME/.claude/skills/highlight-research-pdf"
+python -m pip install -r "$HOME/.claude/skills/highlight-research-pdf/requirements.txt"
+```
+
+Start Claude Code in the folder with the PDF and try this prompt, or ask in plain words and Claude Code loads the skill on its own.
+
+> /highlight-research-pdf Highlight paper.pdf and save an annotated PDF copy.
+
+For project-scoped installation, clone into `.claude/skills/highlight-research-pdf` inside the project instead. See the [Claude Code skills documentation](https://docs.claude.com/en/docs/claude-code/skills).
 
 ## Apply your own selections
 
